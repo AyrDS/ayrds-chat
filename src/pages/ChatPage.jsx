@@ -12,8 +12,6 @@ export const ChatPage = () => {
             <ChatSelect />
             {/* <Messages /> */}
          </div>
-
-
       </div>
    )
 }
