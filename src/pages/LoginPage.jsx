@@ -84,7 +84,7 @@ export const LoginPage = () => {
             <button
                className="login100-form-btn"
                type='submit'
-               disabled={email.length > 0 && password.length > 0 ? false : true}
+               disabled={[email, password].includes('') ? true : false}
             >
                Ingresar
             </button>
