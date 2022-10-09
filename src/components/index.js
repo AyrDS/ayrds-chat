@@ -7,3 +7,4 @@ export * from './SendMessage';
 export * from './IncomingMessage';
 export * from './OutgoingMessage';
 export * from './ChatSelect';
+export * from './Spinner';

@@ -20,3 +20,30 @@ export const fetchWithoutToken = async (endpoint, data, method = 'GET') => {
    }
 
 }
+
+export const fetchWithToken = async (endpoint, data, method = 'GET') => {
+
+   const url = `${baseURL}/${endpoint}`;
+   const token = localStorage.getItem('token');
+
+   if (method === 'GET') {
+      const resp = await fetch(url, {
+         headers: {
+            'authorization': token
+         }
+      });
+      return await resp.json();
+   } else {
+      const resp = await fetch(url, {
+         method,
+         headers: {
+            'Content-type': 'application/json',
+            'authorization': token
+         },
+         body: JSON.stringify(data)
+      });
+
+      return await resp.json();
+   }
+
+}
