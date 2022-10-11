@@ -17,11 +17,15 @@ export const RegisterPage = () => {
 
    const onSubmit = async (e) => {
       e.preventDefault();
+      Swal.showLoading();
 
       const resp = await register(name, email, password);
-      if (resp.ok === false) {
+      if (!resp.ok) {
          Swal.fire('Error', resp.msg, 'error');
+         return;
       }
+
+      Swal.close();
    }
 
    return (
@@ -35,7 +39,7 @@ export const RegisterPage = () => {
                className="input100"
                type="text"
                name="name"
-               placeholder="Nombre"
+               placeholder="Nombre Completo"
                value={name}
                onChange={onInputChange}
             />

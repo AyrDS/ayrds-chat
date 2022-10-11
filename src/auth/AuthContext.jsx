@@ -38,9 +38,9 @@ export const AuthProvider = ({ children }) => {
 
    const register = async (name, email, password) => {
       const resp = await fetchWithoutToken('login/new', { name, email, password }, 'POST');
-
       if (resp.ok) {
          const { user } = resp;
+         console.log(user);
          localStorage.setItem('token', `Bearer ${resp.token}`);
          setAuth({
             uid: user.uid,

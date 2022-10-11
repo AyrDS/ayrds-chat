@@ -5,8 +5,8 @@ import { AuthContext } from '../auth/AuthContext';
 import { useForm } from '../hooks/useForm';
 
 const formData = {
-   email: localStorage.getItem('email') || 'karen@test.com',
-   password: '123456',
+   email: localStorage.getItem('email') || '',
+   password: '',
    rememberme: localStorage.getItem('email') ? true : false
 }
 
@@ -17,6 +17,7 @@ export const LoginPage = () => {
 
    const onSubmit = async (e) => {
       e.preventDefault();
+      Swal.showLoading();
 
       rememberme ? localStorage.setItem('email', email) : localStorage.removeItem('email');
 
@@ -24,7 +25,10 @@ export const LoginPage = () => {
 
       if (!ok) {
          Swal.fire('Error', 'Verifique el usuario y contraseña', 'error');
+         return;
       }
+
+      Swal.close();
    }
 
    return (

@@ -11,7 +11,7 @@ export const SocketContext = createContext();
 
 export const SocketProvider = ({ children }) => {
 
-   const { socket, online, connectSocket, disconnectSocket } = useSocket('http://localhost:8080');
+   const { socket, online, connectSocket, disconnectSocket } = useSocket(import.meta.env.VITE_SOCKET_URL);
    const { auth } = useContext(AuthContext);
    const { dispatch } = useContext(ChatContext);
 
