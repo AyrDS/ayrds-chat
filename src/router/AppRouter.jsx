@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, HashRouter } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext';
 import { Spinner } from '../components';
 import { ChatPage } from '../pages';
@@ -20,7 +20,7 @@ export const AppRouter = () => {
    }
 
    return (
-      <BrowserRouter>
+      <HashRouter>
          <Routes>
 
             <Route
@@ -42,6 +42,6 @@ export const AppRouter = () => {
 
             <Route path='*' element={<Navigate to='/auth/login' />} />
          </Routes>
-      </BrowserRouter>
+      </HashRouter>
    )
 }
