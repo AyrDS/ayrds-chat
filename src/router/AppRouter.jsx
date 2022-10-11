@@ -13,7 +13,6 @@ export const AppRouter = () => {
 
    useEffect(() => {
       verifyToken();
-      console.log('holi');
    }, []);
 
    if (auth.checking) {

@@ -30,9 +30,6 @@ export const AuthProvider = ({ children }) => {
             email: user.email
          });
       }
-
-      console.log('Autenticado');
-
       return resp.ok;
    }
 
@@ -96,7 +93,11 @@ export const AuthProvider = ({ children }) => {
    }, []);
 
    const logout = () => {
-
+      localStorage.removeItem('token');
+      setAuth({
+         checking: false,
+         logged: false,
+      });
    }
 
    return (
